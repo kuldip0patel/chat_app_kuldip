@@ -66,6 +66,7 @@ const HomePage: React.FC = () => {
   const handleSendMessage = (text: string) => {
     console.log("INSIDE handle msg");
     console.log(text);
+    console.log(currentTime);
     if (ws && ws.readyState === WebSocket.OPEN) {
       const newMessage = {
         id: uuidv4(), // Use uuidv4 to generate a UUID

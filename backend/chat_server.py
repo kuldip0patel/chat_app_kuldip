@@ -47,7 +47,12 @@ class ConnectionManager:
 
     async def broadcast(self, message: str):
         for connection in self.active_connections:
-            await connection.send_text(message)
+            try:
+                await connection.send_text(message)
+            except WebSocketDisconnect:
+                username = manager.disconnect(websocket)
+                msg = Utils.get_formatted_msg(username=username, text=  " has _LEFT_ the chat ")
+                await manager.broadcast(msg)                    
 
 manager = ConnectionManager()
 
