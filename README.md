@@ -36,10 +36,6 @@
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
 
 ### ENV:
 - Create .env.local file in /frontend/chatapp folder.
@@ -48,3 +44,6 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 ####  WebSocket Connection
 ``` const ws = new WebSocket("ws://localhost:8000/ws/${username}"); ```
+
+### Use:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
