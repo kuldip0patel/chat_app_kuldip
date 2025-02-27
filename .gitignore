@@ -1,0 +1,13 @@
+venv
+frontend/node_modules
+frontend/chatapp/src/.env.*
+frontend/chatapp/node_modules/
+# logs
+*.log*
+
+# macOS-specific files
+.DS_Store
+
+# others
+node_modules
+tmp
