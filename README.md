@@ -26,6 +26,8 @@
     - http://localhost:8000
 
 
+### Deployed Live Chat Server:
+https://chat-app-kuldip-server.onrender.com/
 
 ## FRONTEND:
 
@@ -47,3 +49,6 @@ npm run dev
 
 ### Use:
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### Deployed Live Site:
+https://chat-app-kuldip-website.onrender.com/
