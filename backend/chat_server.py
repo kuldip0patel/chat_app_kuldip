@@ -68,3 +68,7 @@ async def websocket_endpoint(websocket: WebSocket, username: str):
         username = manager.disconnect(websocket)
         msg = Utils.get_formatted_msg(username=username, text=  " has _LEFT_ the chat ")
         await manager.broadcast(msg)        
+
+@chat_server.get("/")
+def read_root():
+    return {"message": "Welcome to Oorate Chat!"}
