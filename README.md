@@ -1,7 +1,7 @@
 # Chat Application Using Next.JS and Fast API
 
 
-## BACEKEND:
+## BACKEND:
 
 ### FastAPI WebSocket Chat Backend
 
@@ -27,7 +27,7 @@
 
 
 
-## FRONT END:
+## FRONTEND:
 
 ### Getting Started
 
@@ -48,39 +48,3 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 ####  WebSocket Connection
 ``` const ws = new WebSocket("ws://localhost:8000/ws/${username}"); ```
-
-### Project Structure
-/frontend
-
-│-- /components
-
-│   │-- ChatInput.tsx
-
-│   │-- MessageList.tsx
-
-│   │-- ConnectionStatus.tsx
-
-│-- /types
-
-│   │-- Message.ts
-
-│-- /app
-
-│   │-- page.tsx
-
-│-- /public
-
-│-- /styles
-
-│-- /node_modules
-
-│-- .gitignore
-
-│-- next.config.js
-
-│-- package.json
-
-│-- tsconfig.json
-
-│-- README.md
-
