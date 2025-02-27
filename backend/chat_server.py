@@ -16,9 +16,11 @@ chat_server.add_middleware(
 )
 
 class Utils:
-    def get_formatted_msg(username, text):
+    def get_formatted_msg(username, text, msg_type="MSG"):
+        #TODO: identify message type: e.g. MSG, JOINED, LEFT etc.
         iso_timestamp = datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z")
-        msg_dict = {'id': str(uuid.uuid4()), 'user' :username, 'text': text, 'timestamp': iso_timestamp  }
+        msg_dict = {'id': str(uuid.uuid4()), 'user' :username, 'text': text, 'timestamp': iso_timestamp, 'msg_type': msg_type }
+        #TODO: add a logger with dev/prod/local configs later.
         print(msg_dict)
         msg_str = json.dumps(msg_dict)
         return msg_str
@@ -55,6 +57,7 @@ async def websocket_endpoint(websocket: WebSocket, username: str):
     try:
         while True:
             data = await websocket.receive_text()
+            print(data)
             await manager.broadcast(f"{data}")
     except WebSocketDisconnect:
         username = manager.disconnect(websocket)

@@ -1,4 +1,3 @@
-// src/components/ChatInput.tsx
 import React, { useState } from 'react';
 import { TextField, Button } from '@mui/material';
 
@@ -33,6 +32,8 @@ const ChatInput: React.FC<Props> = ({ onSendMessage }) => {
         sx={{ 
           // border: '1px solid #ccc', // reverted change
           // width: '50%' // reverted change
+          // width: { xs: '100%', sm: 'auto' }, // Full width on small screens, auto for larger
+
         }}
         value={text} // Bind the input value to state
         onChange={(e) => setText(e.target.value)} // Update state on input change        

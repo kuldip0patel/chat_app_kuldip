@@ -2,11 +2,12 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { Container, Typography, Box } from '@mui/material';
 import ChatInput from '../components/ChatInput';
-import MessageList from '../components/MessageList';
 import ConnectionStatus from '../components/ConnectionStatus';
 import { Message } from '../types/Message';
 import { v4 as uuidv4 } from 'uuid';
+import ChatRoom from '@/components/ChatRoom';
 
 
 //TODO: Take input from the user with full auth module later
@@ -68,8 +69,9 @@ const HomePage: React.FC = () => {
       const newMessage = {
         id: uuidv4(), // Use uuidv4 to generate a UUID
         user: username,
-        text,
+        text: text,
         timestamp: new Date(initialTimestamp).toISOString(),
+        msg_type:"MSG"
       };
       ws.send(JSON.stringify(newMessage));
     }
@@ -79,18 +81,31 @@ const HomePage: React.FC = () => {
     return null; // Or a loading spinner
   }
 
-  
-  return (
-    <div>        <h1>Real-Time Chat</h1>
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: 'white' }}>
-      <div>
-        <ConnectionStatus isConnected={isConnected} />
-        <MessageList messages={messages} />
-        <ChatInput onSendMessage={handleSendMessage} />
-      </div>
-    </div>
-    </div>
-  );
+
+return (
+  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: 'white' }}>
+  <Container 
+    maxWidth="md" 
+    sx={{ 
+      display: 'flex', 
+      flexDirection: 'column', 
+      justifyContent: 'space-between', 
+      height: '100vh', 
+      padding: 2 
+    }}
+  >
+    <Typography variant="h4" align="center" gutterBottom color='darkblue'>
+    Oorate Chat App
+    </Typography>
+    <ConnectionStatus isConnected={isConnected} />
+    <Box flexGrow={1}>
+      <ChatRoom messages={messages} username={username} />
+    </Box>
+    <ChatInput onSendMessage={handleSendMessage} />
+  </Container>
+  </div>
+);
 };
+
 
 export default HomePage;
