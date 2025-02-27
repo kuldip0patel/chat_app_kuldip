@@ -50,7 +50,7 @@ class ConnectionManager:
             try:
                 await connection.send_text(message)
             except WebSocketDisconnect:
-                username = manager.disconnect(websocket)
+                username = manager.disconnect(connection)
                 msg = Utils.get_formatted_msg(username=username, text=  " has _LEFT_ the chat ")
                 await manager.broadcast(msg)                    
 
