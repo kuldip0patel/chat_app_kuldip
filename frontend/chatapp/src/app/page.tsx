@@ -1,4 +1,3 @@
-// src/app/page.tsx
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -15,7 +14,9 @@ const randomWord = Array.from({ length: 10 }, () => String.fromCharCode(Math.flo
 const username = randomWord + "@mailinator.com"
 console.log(username);
 
-const WEBSOCKET_URL = process.env.NEXT_PUBLIC_WEBSOCKET_URL || `ws://localhost:8000/ws/${username}`;
+console.log(process.env.NEXT_PUBLIC_WEBSOCKET_URL);
+
+const WEBSOCKET_URL = process.env.NEXT_PUBLIC_WEBSOCKET_URL + username ;
 console.log(WEBSOCKET_URL)
 
 

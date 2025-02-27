@@ -40,7 +40,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-###  WebSocket Connection
+
+### ENV:
+- Create .env.local file in /frontend/chatapp folder.
+- Define the following variable: NEXT_PUBLIC_WEBSOCKET_URL
+- e.g. NEXT_PUBLIC_WEBSOCKET_URL=ws://localhost:8000/ws/
+
+####  WebSocket Connection
 ``` const ws = new WebSocket("ws://localhost:8000/ws/${username}"); ```
 
 ### Project Structure
